@@ -47,6 +47,10 @@ class DevelopmentConfig(Configure):
     
 class ProductionConfig(Configure):
     STATIC_BASE=""
+
+class StaticBuildConfig(Configure):
+    """Config for building static sites - uses relative paths"""
+    STATIC_BASE=""  # Use relative paths for GitHub Pages
     
 class TestingConfig(Configure):
     DEV_TEST = True

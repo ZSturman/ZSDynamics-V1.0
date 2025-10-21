@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACC,eAAe;EACf,YAAY,CAAA,2BAAC;EACb,gBAAgB,CAAA,kBAAC;EACjB,YAAY,CAAA,2BAAC;EACb,gBAAgB,CAAA,iBAAC;EACjB,gBAAgB,CAAA,sEAAC;CACtB;;AACD,AAAA,eAAe,CAAA;EACX,UAAU,EAAE,qBAAqB;CAClC;;AAED,AAAA,aAAa,CAAA;EACX,KAAK,EAAE,0BAA0B;CAClC;;AAED,AAAA,UAAU,CAAA;EACR,UAAU,EAAE,qBAAqB;CAClC;;AAED,AAAA,WAAW,CAAA;EACT,UAAU,EAAE,qBAAqB;CAClC",
+    "sources": [
+        "superhero_battle.scss"
+    ],
+    "names": [],
+    "file": "superhero_battle.css"
+}

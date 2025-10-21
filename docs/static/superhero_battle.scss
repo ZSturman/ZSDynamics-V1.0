@@ -1,0 +1,24 @@
+:root{
+      /* Dashboard */
+      --db-color-0: rgba(139, 218, 234, 0.502);
+      --db-color-0-drk: rgb(91, 144, 155);
+      --db-color-1: rgba(234, 139, 139, 0.502);
+      --db-color-1-drk: rgb(169, 99, 99);
+      --db-bg-gradient: linear-gradient(to right, rgb(29, 55, 108) 25%, rgb(139, 28, 28) 75%);
+}
+.db-bg-gradient{
+    background: var(--db-bg-gradient);
+  }
+  
+  .db-txt-color{
+    color: rgba(255, 255, 253, 0.815);
+  }
+  
+  .blue-grad{
+    background: var(--blue-gradient1);
+  }
+  
+  .bg-cc-blue{
+    background: var(--blue-gradient2);
+  }
+  

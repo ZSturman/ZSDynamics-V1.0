@@ -1,0 +1,188 @@
+.html_dashboard {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.periodic .periodic-row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.periodic .periodic-row .cell {
+  width: calc(100% / 18);
+  height: calc(100% / 9);
+}
+
+.element-types-div {
+  height: calc(100% / 3);
+  margin-right: calc(100% / 3);
+  margin-left: calc(100% / 9);
+}
+
+.element {
+  background-color: #a5a5c3;
+  cursor: pointer;
+}
+
+.element .element-name {
+  font-size: .75rem;
+}
+
+.atomic-weight {
+  opacity: .75;
+  font-size: .75rem;
+}
+
+.displayed-symbol {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.more-info-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-inline: 1%;
+}
+
+.more-info-div:hover {
+  background-color: rgba(0, 0, 0, 0.663);
+  color: rgba(255, 255, 255, 0.758);
+}
+
+.info-title {
+  font-size: .85rem;
+  padding: 0;
+  margin: 0;
+}
+
+.info-details {
+  font-size: .95rem;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  padding-left: .25rem;
+}
+
+.sel-elem-sect-label {
+  opacity: .5;
+}
+
+.AlkaliMetal {
+  background-color: #9796d1;
+}
+
+.AlkalineEarthMetal {
+  background-color: #a5c4da;
+}
+
+.Metalloid {
+  background-color: #9cbec9;
+}
+
+.Halogen {
+  background-color: #95c4a6;
+}
+
+.Metal {
+  background-color: #bdc89d;
+}
+
+.Nonmetal {
+  background-color: #c79696;
+}
+
+.TransitionMetal {
+  background-color: #c699c0;
+}
+
+.Lanthanide {
+  background-color: #9ed7b1;
+}
+
+.Actinide {
+  background-color: #9897c2;
+}
+
+.Transactinide {
+  background-color: #94c5a4;
+}
+
+.Unknown {
+  background-color: #bcb9b9;
+}
+
+.NobleGas {
+  background-color: #a5a881;
+}
+
+.gas {
+  color: #008b35;
+}
+
+.solid {
+  color: #7f0088;
+}
+
+.liq {
+  color: #0044ff;
+}
+
+.artificial {
+  color: #a94545;
+}
+
+.saturate {
+  -webkit-filter: saturate(1.1);
+          filter: saturate(1.1);
+}
+
+@media (max-width: 767px) {
+  button {
+    font-size: 10px !important;
+  }
+  h5 {
+    font-size: 12px !important;
+  }
+  p {
+    font-size: 10px !important;
+  }
+  .element-name {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h5 {
+    font-size: 14px !important;
+  }
+  p {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  p {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=periodic_table.css.map */

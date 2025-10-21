@@ -1,0 +1,184 @@
+.html_dashboard{
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+  
+  .periodic{
+    .periodic-row{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .cell{
+        width: calc(100% / 18);
+        height: calc(100% / 9);
+      }
+    }
+  }
+  
+  
+  .element-types-div{
+    height: calc(100% / 3);
+    margin-right: calc(100% / 3);
+    margin-left: calc(100% / 9);
+  }
+  
+  .element{
+    background-color: rgb(165, 165, 195);
+    cursor: pointer;
+    .element-name{
+      font-size: .75rem;
+    }
+  }
+  
+  .atomic-weight{
+    opacity: .75;
+    font-size: .75rem;
+  }
+  
+  .displayed-symbol{
+    width:fit-content;
+  }
+  
+  .more-info-div{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-inline: 1%;
+  }
+  
+  .more-info-div:hover{
+    background-color: rgba(0, 0, 0, 0.663);
+    color: rgba(255, 255, 255, 0.758);
+  }
+  
+  .info-title{
+    font-size: .85rem;
+    padding: 0;
+    margin: 0;
+  
+  }
+  .info-details{
+    font-size: .95rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    padding-left: .25rem;
+  }
+  
+  .sel-elem-sect-label{
+    opacity: .5;
+  }
+  .AlkaliMetal{
+    background-color: rgb(151, 150, 209);
+  }
+  .AlkalineEarthMetal{
+    
+    background-color: rgb(165, 196, 218);
+  }
+  .Metalloid{
+    
+    background-color: rgb(156, 190, 201);
+  }
+  .Halogen{
+    
+    background-color: rgb(149, 196, 166);
+  }
+  .Metal{
+    
+    background-color: rgb(189, 200, 157);
+  }
+  .Nonmetal{
+    background-color: rgb(199, 150, 150);
+  }
+  .TransitionMetal{
+    
+    background-color: rgb(198, 153, 192);
+  }
+  .Lanthanide{
+    
+    background-color: rgb(158, 215, 177);
+  }
+  .Actinide{
+    
+    background-color: rgb(152, 151, 194);
+  }
+  .Transactinide{
+    
+    background-color: rgb(148, 197, 164);
+  }
+  .Unknown{
+    
+    background-color: rgb(188, 185, 185);
+  }
+  .NobleGas{
+    
+    background-color: rgb(165, 168, 129);
+  }
+  
+  .gas{
+    color: rgb(0, 139, 53);
+  }
+  
+  .solid{
+    color: rgb(127, 0, 136);
+  }
+  
+  .liq{
+    color: rgb(0, 68, 255);
+  }
+  
+  .artificial{
+    color: rgb(169, 69, 69);
+  }
+  
+  .saturate {
+    filter: saturate(1.1);
+  }
+  
+
+  $screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+@media (max-width: $screen-xs-max) {
+  // styles for extra small screens
+  button{
+    font-size: 10px !important;
+  }
+  h5{
+    font-size: 12px !important;
+  }
+  p {
+    font-size: 10px !important;
+  }
+  .element-name{
+    display: none;
+  }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  // styles for small screens
+  h5{
+    font-size: 14px !important;
+  }
+  p {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  // styles for medium screens
+  p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  // styles for large screens
+  p {
+    font-size: 18px;
+  }
+}

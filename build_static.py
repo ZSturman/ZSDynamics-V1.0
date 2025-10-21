@@ -1,8 +1,10 @@
 import os
 import shutil
 from pathlib import Path
+import re
 
 from app import create_app
+from config import StaticBuildConfig
 
 
 def render_templates_to_docs(app, docs_path: Path):
@@ -47,6 +49,46 @@ def copy_static(src_static: Path, dst_static: Path):
     print(f"Copied static assets {src_static} -> {dst_static}")
 
 
+def fix_static_paths(docs_path: Path):
+    """Fix absolute static paths to relative paths for GitHub Pages and remove GTM"""
+    
+    def fix_file_paths(file_path: Path, is_subdirectory: bool = False):
+        content = file_path.read_text(encoding='utf-8')
+        
+        # Determine the correct relative path prefix
+        prefix = "../static/" if is_subdirectory else "static/"
+        
+        # Fix CSS and other href links  
+        content = re.sub(r'href="/static/', f'href="{prefix}', content)
+        
+        # Fix image and script src links
+        content = re.sub(r'src="/static/', f'src="{prefix}', content)
+        content = re.sub(r'src="\.\./static/', f'src="{prefix}', content)
+        
+        # Remove Google Tag Manager scripts
+        content = re.sub(r'<!-- Google Tag Manager -->.*?<!-- End Google Tag Manager -->', '', content, flags=re.DOTALL)
+        content = re.sub(r'<!-- Google Tag Manager \(noscript\) -->.*?<!-- End Google Tag Manager \(noscript\) -->', '', content, flags=re.DOTALL)
+        
+        # Remove GTM CSS classes
+        content = re.sub(r' gtm-[a-zA-Z0-9_-]*', '', content)
+        content = re.sub(r'gtm-[a-zA-Z0-9_-]*', '', content)
+        
+        file_path.write_text(content, encoding='utf-8')
+        print(f"Fixed static paths and removed GTM in {file_path}")
+    
+    # Fix root level HTML files
+    for html_file in docs_path.glob("*.html"):
+        fix_file_paths(html_file, is_subdirectory=False)
+    
+    # Fix HTML files in subdirectories
+    for html_file in docs_path.glob("*/*.html"):
+        fix_file_paths(html_file, is_subdirectory=True)
+        
+    # Fix HTML files in nested subdirectories
+    for html_file in docs_path.glob("*/*/*.html"):
+        fix_file_paths(html_file, is_subdirectory=True)
+
+
 def build(docs_dir: str = "docs"):
     docs_path = Path(docs_dir)
     if docs_path.exists():
@@ -56,20 +98,26 @@ def build(docs_dir: str = "docs"):
 
     # create a Flask app using the project's factory
     app = create_app()
+    
+    # Override config for static build
+    app.config.from_object(StaticBuildConfig)
 
     # ensure templates are found and context processors run
     with app.app_context():
         # render templates
         render_templates_to_docs(app, docs_path)
 
-    # copy static folder (project root/static -> docs/static)
+    # copy static folder (app/static -> docs/static)
     project_root = Path(__file__).parent
-    src_static = project_root / "static"
+    src_static = project_root / "app" / "static"
     if src_static.exists():
         dst_static = docs_path / "static"
         copy_static(src_static, dst_static)
     else:
         print(f"No static folder found at {src_static}; skipping copy")
+    
+    # Fix static paths for GitHub Pages
+    fix_static_paths(docs_path)
 
     print("Build complete. Serve the site with: npx serve docs")
 
