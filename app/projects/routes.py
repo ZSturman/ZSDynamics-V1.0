@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 import pandas as pd
 
-projects = Blueprint("projects", __name__, url_prefix='/outdated_portfolio')
+projects = Blueprint("projects", __name__)
 
 @projects.route("/portfolio")
 def portfolio():

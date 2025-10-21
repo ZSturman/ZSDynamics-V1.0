@@ -5,9 +5,9 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     app_name: str = "ZSDynamics"
-    SECRET_KEY: str
-    MAIL_USERNAME: str
-    MAIL_PASSWORD: str
+    SECRET_KEY: str = "static-site-no-secrets-needed"
+    MAIL_USERNAME: str = ""
+    MAIL_PASSWORD: str = ""
 
     class Config:
         env_file = "app/.env"
@@ -46,7 +46,7 @@ class DevelopmentConfig(Configure):
     PERMANENT_SESSION_LIFETIME = 60
     
 class ProductionConfig(Configure):
-    STATIC_BASE="/outdated_portfolio"
+    STATIC_BASE=""
     
 class TestingConfig(Configure):
     DEV_TEST = True

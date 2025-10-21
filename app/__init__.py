@@ -14,12 +14,11 @@ def create_app(config_class=settings):
     from app.main.routes import main
     from app.projects.routes import projects
     from app.services.routes import services
-    from app.mail.routes import zs_mail
+
     app.register_blueprint(errors)
     app.register_blueprint(main)
     app.register_blueprint(projects)
     app.register_blueprint(services)
-    app.register_blueprint(zs_mail)
 
 
     return app

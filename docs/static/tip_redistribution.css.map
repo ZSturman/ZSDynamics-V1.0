@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,QAAQ,CAAA;EACJ,UAAU,EAAE,OAAe;EAC3B,KAAK,EAAE,OAAkB;CAC1B",
+    "sources": [
+        "tip_redistribution.scss"
+    ],
+    "names": [],
+    "file": "tip_redistribution.css"
+}

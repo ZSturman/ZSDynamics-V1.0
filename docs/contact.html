@@ -21,16 +21,16 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ static_base }}{{ static_base }}{{url_for('static', filename='custom.css')}}" type="text/css">
+    <link rel="stylesheet" href="/static/custom.css" type="text/css">
 
     <meta property="og:title" content="Zachary Sturman Portfolio">
     <meta property="og:description" content="Explore my data science portfolio, showcasing projects in machine learning, data visualization, and analytics. Learn how I leverage data-driven insights to solve real-world problems.">
-    <meta property="og:image" content="https://www.ZSdynamics.com{{ static_base }}{{url_for('static', filename='images/og_img.png')}}">
+    <meta property="og:image" content="https://www.ZSdynamics.com/static/images/og_img.png">
 
     <meta property="og:url" content="https://www.zsdynamics.com">
     <meta property="og:type" content="website">
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="shortcut icon" href="/static/favicon.png">
 
 
 </head>
@@ -42,7 +42,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar navbar-expand-md" style="color:white;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('main.home') }}">
+            <a class="navbar-brand" href="/home">
                 <svg width="98" height="50" viewBox="0 0 98 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="98" height="52" rx="3" fill="#1B2C69"/>
                     <path d="M43.5603 35.061H3.48328V34.268L39.2293 5.47601C40.0019 4.90667 40.5509 4.58134 40.8763 4.50001V4.43901C40.7543 4.47968 40.5103 4.54068 40.1443 4.62201C39.7783 4.66268 39.3513 4.68301 38.8633 4.68301H4.82528V14.504H3.30028V3.28001H43.3163V4.07301L7.44828 33.048C7.16361 33.292 6.87894 33.475 6.59428 33.597C6.35028 33.719 6.14694 33.8207 5.98428 33.902C6.14694 33.902 6.37061 33.8613 6.65528 33.78C6.98061 33.6987 7.34661 33.658 7.75328 33.658H42.0353V23.837H43.5603V35.061Z" fill="white"/>
@@ -77,10 +77,10 @@
 
                 <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0 me-5 gap-3 ps-4 text-start">
                     <li class="nav-item">
-                        <a class="nav-link text-light gtm-nav-bar-link" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('projects.portfolio') }}">Portfolio</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="/portfolio">Portfolio</a>
                     </li>
                     <li class="nav-item dropdown">
 
@@ -89,18 +89,18 @@
                             Services
                         </a>
                         <ul class="dropdown-menu ms-1" style="background-color: rgb(10, 41, 73);">
-                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.data_analytics') }}">Data Analytics</a></li>
-                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.front_end') }}">User Interface
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="/data_analytics">Data Analytics</a></li>
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="/front_end">User Interface
                                     Development</a></li>
-                            <li><a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('services.back_end') }}">Back-end Engineering</a></li>
+                            <li><a class="nav-link text-light gtm-nav-bar-link" href="/back_end">Back-end Engineering</a></li>
 
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('main.about') }}">About</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light gtm-nav-bar-link" href="{{ url_for('main.contact') }}">Contact</a>
+                        <a class="nav-link text-light gtm-nav-bar-link" href="/contact">Contact</a>
                     </li>
                     <li>
                         <a id="resume-nav-btn" href="../static/assets/ZacharySturman_Resume.pdf" target="_blank"
@@ -113,15 +113,9 @@
             </div>
         </div>
     </nav>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    {% for category, message in messages %}
-    <div class="alert alert-{{ category }}">
-        {{ message }}
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
+    
+    
+    
 
     <div id="contact-page" class="container-fluid">
         <div class="row blue-grad p-4">
@@ -172,7 +166,7 @@
                 <i class="fa-brands fa-twitter "></i>
             </a>
             <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link-sm gtm-social-media-icon"
-                href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                href="mailto:zacharysturman@zsdynamics.com?subject=&body="
                 data-text="email">
                 <i class="fa-solid fa-envelope "></i>
             </a>
@@ -189,19 +183,19 @@
         <div class="d-inline-flex justify-content-center flex-wrap gap-3 pb-5 pt-3 d-md-none w-100">
 
            
-            <a href="{{ url_for('main.contact') }}"
+            <a href="/contact"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link-sm gtm-social-media-icon"
                 data-text="contact">
                 <i class="fa-solid fa-comment-dots "></i>
             </a>
 
-            <a href="{{ url_for('projects.portfolio') }}"
+            <a href="/portfolio"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link-sm gtm-social-media-icon"
                 data-text="portfolio">
                 <i class="fa-solid fa-box-archive "></i>
             </a>
 
-            <a href="{{ url_for('main.about') }}"
+            <a href="/about"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link-sm gtm-social-media-icon"
                 data-text="about">
                 <i class="fa-solid fa-user"></i>
@@ -225,7 +219,7 @@
                 <i class="fa-brands fa-twitter "></i>
             </a>
             <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
-                href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                href="mailto:zacharysturman@zsdynamics.com?subject=&body="
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="200" data-text="email">
                 <i class="fa-solid fa-envelope "></i>
             </a>
@@ -243,7 +237,7 @@
         </div>
         <div class="d-none d-md-inline-flex d-lg-none justify-content-center gap-3 pb-5 flex-wrap w-100">
            
-            <a href="{{ url_for('main.contact') }}"
+            <a href="/contact"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="600" data-text="contact">
                 <i class="fa-solid fa-comment-dots "></i>
@@ -251,13 +245,13 @@
 
             </a>
 
-            <a href="{{ url_for('projects.portfolio') }}"
+            <a href="/portfolio"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="700" data-text="portfolio">
                 <i class="fa-solid fa-box-archive "></i>
             </a>
 
-            <a href="{{ url_for('main.about') }}"
+            <a href="/about"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-sm d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="800" data-text="about">
                 <i class="fa-solid fa-user "></i>
@@ -279,7 +273,7 @@
                 <i class="fa-brands fa-twitter fa-lg"></i>
             </a>
             <a class="btn btn-outline-info rounded-circle btn-lg perf-circle-md d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
-                href="mailto:zacharysturman@zsdynamics.com?subject={{ email_subject_line }}&body={{ email_body }}"
+                href="mailto:zacharysturman@zsdynamics.com?subject=&body="
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="200" data-text="email">
                 <i class="fa-solid fa-envelope fa-lg"></i>
             </a>
@@ -295,7 +289,7 @@
             </a>
 
 
-            <a href="{{ url_for('main.contact') }}"
+            <a href="/contact"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-md d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="600" data-text="contact">
                 <i class="fa-solid fa-comment-dots fa-lg"></i>
@@ -303,13 +297,13 @@
 
             </a>
 
-            <a href="{{ url_for('projects.portfolio') }}"
+            <a href="/portfolio"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-md d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="700" data-text="portfolio">
                 <i class="fa-solid fa-box-archive fa-lg"></i>
             </a>
 
-            <a href="{{ url_for('main.about') }}"
+            <a href="/about"
                 class="btn btn-outline-info rounded-circle btn-lg perf-circle-md d-flex justify-content-center align-items-center contact-page-connect-link gtm-social-media-icon"
                 data-aos="fade" data-aos-duration="1500" data-aos-delay="800" data-text="about">
                 <i class="fa-solid fa-user fa-lg"></i>

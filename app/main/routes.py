@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, url_for, send_from_directory, current_app
 import os
 
-main = Blueprint("main", __name__, url_prefix='/outdated_portfolio')
+main = Blueprint("main", __name__)
 
 @main.route("/")
 @main.route("/home")

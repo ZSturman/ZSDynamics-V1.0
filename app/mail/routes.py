@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, flash, redirect, request, url_for,
 from flask_mail import Mail, Message
 from config import get_settings
 
-zs_mail = Blueprint("zs_mail", __name__, url_prefix='/outdated_portfolio')
+zs_mail = Blueprint("zs_mail", __name__)
 
 settings = get_settings()
 
