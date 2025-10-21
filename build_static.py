@@ -73,8 +73,29 @@ def fix_static_paths(docs_path: Path):
         content = re.sub(r' gtm-[a-zA-Z0-9_-]*', '', content)
         content = re.sub(r'gtm-[a-zA-Z0-9_-]*', '', content)
         
+        # Fix navigation routes for GitHub Pages (repository-specific paths)
+        repo_base = "ZSDynamics-V1.0/"
+        
+        # Map Flask routes to HTML files
+        route_mappings = {
+            '/home': f'{repo_base}index.html',
+            '/portfolio': f'{repo_base}portfolio.html',
+            '/about': f'{repo_base}about.html',
+            '/contact': f'{repo_base}contact.html',
+            '/data_analytics': f'{repo_base}data_analytics.html',
+            '/front_end': f'{repo_base}front_end.html',
+            '/back_end': f'{repo_base}back_end.html',
+        }
+        
+        for route, html_file in route_mappings.items():
+            content = re.sub(f'href="{route}"', f'href="{html_file}"', content)
+        
+        # Fix resume links that got the wrong relative path
+        if not is_subdirectory:  # Only fix for root level files
+            content = re.sub(r'href="\.\./static/assets/', 'href="static/assets/', content)
+        
         file_path.write_text(content, encoding='utf-8')
-        print(f"Fixed static paths and removed GTM in {file_path}")
+        print(f"Fixed static paths, routes, and removed GTM in {file_path}")
     
     # Fix root level HTML files
     for html_file in docs_path.glob("*.html"):
